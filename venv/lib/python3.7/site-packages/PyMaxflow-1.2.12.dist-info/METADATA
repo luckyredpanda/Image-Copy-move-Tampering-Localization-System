@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: PyMaxflow
+Version: 1.2.12
+Summary: A mincut/maxflow package for Python
+Home-page: https://github.com/pmneila/PyMaxflow
+Author: Pablo Márquez Neila
+Author-email: pablo.marquezneila@epfl.ch
+License: GPL
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires: numpy
+Requires: Cython
+
+
+PyMaxflow is a Python library for graph construction and
+maxflow computation (commonly known as `graph cuts`). The
+core of this library is the C++ implementation by
+Vladimir Kolmogorov, which can be downloaded from his
+`homepage <http://www.cs.ucl.ac.uk/staff/V.Kolmogorov/>`_.
+Besides the wrapper to the C++ library, PyMaxflow offers
+
+* NumPy integration,
+* methods for the construction of common graph
+  layouts in computer vision and graphics,
+* implementation of algorithms for fast energy
+  minimization which use the `maxflow` method:
+  the alpha-beta-swap and the alpha-expansion.
+
+
+

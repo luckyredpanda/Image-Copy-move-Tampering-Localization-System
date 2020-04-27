@@ -1,0 +1,13 @@
+pastel-0.2.0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+pastel-0.2.0.dist-info/LICENSE,sha256=8vm0YLpxnaZiat0mTTeC8nWk_3qrZ3vtoIszCRHiOts,1062
+pastel-0.2.0.dist-info/METADATA,sha256=4SqdfXx8uHS4Ox5qLbjzck0euzsNEAMjMDNbzFDZnTM,1824
+pastel-0.2.0.dist-info/RECORD,,
+pastel-0.2.0.dist-info/WHEEL,sha256=2SyTS6-hWVbCVhxpPo1j5f9gwaWw-hVIJs0s_cC8MXM,87
+pastel/__init__.py,sha256=eGj3gn9j7KNDBtQDFj15_sgX-KGSTX4777lNpol0WrA,1266
+pastel/__pycache__/__init__.cpython-37.pyc,,
+pastel/__pycache__/pastel.cpython-37.pyc,,
+pastel/__pycache__/stack.cpython-37.pyc,,
+pastel/__pycache__/style.cpython-37.pyc,,
+pastel/pastel.py,sha256=vK1tLi5l9ggpjtjbWyjWbVK9RYhIUYKGmbu97mo_BXk,4288
+pastel/stack.py,sha256=4iIAYyDs0lYmd7k9ZOVt58VzS2xGAHeb8WAD-gknwdM,873
+pastel/style.py,sha256=7jzw_jTSaHnd8EmFyUzgfmqSzx5tQSekF_t24ckISiE,4019

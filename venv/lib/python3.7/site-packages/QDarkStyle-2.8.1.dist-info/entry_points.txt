@@ -1,0 +1,3 @@
+[console_scripts]
+qdarkstyle = qdarkstyle.__main__:main
+

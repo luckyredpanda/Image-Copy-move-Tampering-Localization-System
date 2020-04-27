@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: panda
+Version: 0.3.1
+Summary: A Python implementation of the Panda REST interface
+Home-page: http://www.pandastream.com
+Author: pandastream.com
+Author-email: support@pandastream.com
+License: MIT
+Keywords: panda rest video encoding stream service
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: setuptools
+Requires-Dist: requests
+
+UNKNOWN
+
+

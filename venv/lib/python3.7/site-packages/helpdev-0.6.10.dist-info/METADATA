@@ -1,0 +1,252 @@
+Metadata-Version: 2.1
+Name: helpdev
+Version: 0.6.10
+Summary: HelpDev - Extracts information about the Python environment easily.
+Home-page: https://gitlab.com/dpizetta/helpdev
+Author: Daniel Cosmo Pizetta
+Author-email: daniel.pizetta@usp.br
+Maintainer: Daniel Cosmo Pizetta
+Maintainer-email: daniel.pizetta@usp.br
+License: UNKNOWN
+Project-URL: Issues, https://gitlab.com/dpizetta/helpdev/issues
+Project-URL: Docs, https://helpdev.readthedocs.io/en/stable/index.html
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Customer Service
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Bug Tracking
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Software Development :: Debuggers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Terminals
+Requires-Dist: importlib-metadata
+Requires-Dist: psutil (>=5.6)
+
+HelpDev
+=======
+
+Helping users and developers to get information about the environment to
+report bugs or even test your system without spending a day on it. It can
+get information about hardware, OS, paths, Python distribution and packages,
+including Qt-things. Operates in Linux, Windows and Mac. Working on
+Python 2.7+ and Python 3.4+.
+
+If you want to get information at runtime of your application, you need
+to call using the same environment (and process) in which your application
+is running. This module can be imported and integrated into your application,
+providing a report about the current environment.
+
+Some information can be depedent or independent of your Python environment,
+and some others can be dependent your running application. So, there are some
+acronymn used to refer to them:
+
+- PEI: Python environment independent;
+
+- PED: Python environment DEPENDENT;
+
+- PEAD: Python environment and application DEPENDENT.
+
+
+**Caution:**
+
+- This script is not supposed to get personal information using the option
+  ``--all``, but you must check the information before using the output.
+
+- Using the option ``--all-for-sure`` it is added information about paths and
+  variables that can show personal information. So, be sure when using this
+  option when publishing in the web.
+
+- I'm not responsible for bad use or problems with the information given by
+  this script, but if pointed in the Issues, I can help fixing it.
+
+
+Installing, updating and uninstalling
+#####################################
+
+
+To install and/or update, do ::
+
+    $ pip install -U helpdev
+
+
+To remove ::
+
+    $ pip uninstall helpdev
+
+
+Running
+#######
+
+
+You just need to run in the terminal the line(s) below.
+
+
+To get a minimalist output ::
+
+    $ helpdev
+
+
+To filter a set of packages to get info, which lists all that starts with
+sphinx, qtpy and pyqt5 ::
+
+    $ helpdev --packages="sphinx.*,qtpy,PYQT5"
+
+
+To get a complete output without personal information ::
+
+    $ helpdev --all
+
+
+To get a complete output WITH PERSONAL INFORMATION ::
+
+    $ helpdev --all-for-sure
+
+
+To get some help information ::
+
+    $ helpdev --help
+
+
+Examples from v0.6
+##################
+
+
+Help
+----
+
+.. code-block:: ruby
+
+   Some Ruby code.
+
+
+.. code-block:: console
+
+    $ helpdev --help
+
+
+.. code-block:: console
+
+    usage: helpdev
+        [--hardware] [--os] [--thread] [--network [NETWORK]]
+        [--distributions] [--python] [--conda]
+        [--qt] [--qt-bindings] [--qt-abstractions]
+        [--packages [PACKAGES]]
+        [--packages-pip] [--packages-pip-e]
+        [--packages-conda] [--packages-conda-e]
+        [--numbers] [--float] [--int]
+        [--personal] [--path] [--scope]
+        [--all]
+        [--all-for-sure]
+        [--version]
+        [--help]
+
+    HelpDev - Extracts information about the Python environment easily.
+
+    optional arguments:
+
+    --hardware            CPU, memory and architecture (PEI)
+    --os                  Operating system (PEI)
+    --thread              Threads specification in the system (PEI)
+    --network [NETWORK]   Network information, DNS and load for usual sites
+                           (PEI). NETWORK timeout defaults to 5s. 0 is disabled
+
+    --distributions       All options for distributions below (PED)
+    --python              Python distribution (PED)
+    --conda               Conda/Anaconda Python distribution (PED)
+
+    --qt                  All options for Qt below (PEAD)
+    --qt-bindings         Available Qt bindings (PyQt/Pyside) (PEAD)
+    --qt-abstractions     Available Qt abstractions (QtPy/Qt.Py/PyQtGraph) (PEAD)
+
+    --packages [PACKAGES] All options for packages below, except '-e' (PED)
+                           Filter PACKAGE(s) to report. Accepts regex, separator is ','
+    --packages-pip        PIP installed packages + PIP check (PED)
+    --packages-pip-e      PIP locally installed packages + PIP check (PED)
+    --packages-conda      CONDA installed packages (PED)
+    --packages-conda-e    CONDA locally installed packages (PED)
+
+    --numbers             All options for numbers below (PEI)
+    --float               Float representation in the system (PEI)
+    --int                 Integer representation in the system (PEI)
+
+    --personal            All options for personal information below (PEAD)
+    --path                Show Python current paths i.e. 'sys.path' (PEAD)
+    --scope               Show Python current scope i.e. 'dir()' (PEAD)
+
+    --all                 Run all options above, except 'personal' (PEAD)
+    --all-for-sure        Run all options above, INCLUDING 'PERSONAL' (PEAD)
+
+    --version, -v         Show program's version number and exit
+    --help, -h            Show this help message and exit
+
+
+With --packages filter
+----------------------
+
+This filtering feature provides a clean list of packages to report. It
+accepts regular expressions. Each expression must be separated by comma.
+
+The basic regular expression checks the start until the end of the package
+name and they are case insenstitive.
+
+.. code-block:: sh
+
+    # gets all that starts with 'sphinx', 'qtpy' and 'PYQT5' (not case sensitive)
+    $ helpdev --packages="sphinx.*,qtpy,PYQT5"
+
+
+.. code-block:: sh
+
+    * PYTHON PACKAGES---------------------------------------
+        - PyQt5......................... 5.12.1
+        - QtPy.......................... 1.7.0
+        - Sphinx........................ 2.0.1
+        - sphinx-rtd-theme.............. 0.4.3
+        - sphinxcontrib-applehelp....... 1.0.1
+        - sphinxcontrib-bibtex.......... 0.4.2
+        - sphinxcontrib-devhelp......... 1.0.1
+        - sphinxcontrib-excel........... 0.0.1
+        - sphinxcontrib-fulltoc......... 1.2.0
+        - sphinxcontrib-htmlhelp........ 1.0.2
+        - sphinxcontrib-jsmath.......... 1.0.1
+        - sphinxcontrib-plantuml........ 0.15
+        - sphinxcontrib-qthelp.......... 1.0.2
+        - sphinxcontrib-serializinghtml. 1.1.3
+    * CONDA PACKAGES-----------------------------------------
+        - pyqt5......................... 5.12.1
+        - qtpy.......................... 1.7.0
+        - sphinx........................ 2.0.1
+        - sphinx-rtd-theme.............. 0.4.3
+        - sphinxcontrib-applehelp....... 1.0.1
+        - sphinxcontrib-bibtex.......... 0.4.2
+        - sphinxcontrib-devhelp......... 1.0.1
+        - sphinxcontrib-excel........... 0.0.1
+        - sphinxcontrib-fulltoc......... 1.2.0
+        - sphinxcontrib-htmlhelp........ 1.0.2
+        - sphinxcontrib-jsmath.......... 1.0.1
+        - sphinxcontrib-plantuml........ 0.15
+        - sphinxcontrib-qthelp.......... 1.0.2
+        - sphinxcontrib-serializinghtml. 1.1.3
+
+
+This code is based on many other scripts from:
+
+   - `zhreshold <https://gist.github.com/zhreshold/f4defab409cc0e6f6a0e75237f73ca99>`_
+   - `QDarkStyle <https://github.com/ColinDuquesnoy/QDarkStyleSheet>`_
+   - `QtPy <https://github.com/spyder-ide/qtpy>`_
+
+

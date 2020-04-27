@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: qeGraphMaker
+Version: 1.0.5
+Summary: Create PDF Graphs from Google Sheets Data
+Home-page: https://github.com/KPostOffice/QETool_pip
+Author: Kevin Postlethwait
+Author-email: kpostlet@redhat.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: requests
+Requires-Dist: matplotlib
+
+UNKNOWN
+
+

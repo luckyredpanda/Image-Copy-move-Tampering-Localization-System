@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: utils-core
+Version: 0.1.2
+Summary: General utilities on top of Python standard libraries
+Home-page: https://github.com/maxzheng/utils-core
+Author: Max Zheng
+Author-email: maxzheng.os@gmail.com
+License: MIT
+Keywords: general utilities for standard library
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+
+utils-core
+===========
+
+General utilities on top of Python standard libraries.
+
+Examples for process-related utilities:
+
+.. code-block:: python
+
+    from utils.process import run, silent_run
+
+
+    run('ls -l')
+    out = run(['ls', '-l'], return_output=True)
+
+    # Just runs without any output to stdout. Alias for: run(..., silent=True)
+    silent_run('ls -l')
+
+Examples for filesystem-related utilities:
+
+.. code-block:: python
+
+    import os
+
+    from utils.fs import in_dir, in_temp_dir
+
+
+    with in_temp_dir() as tmpdir:
+        assert os.getcwd() == tmpdir
+
+    with in_dir('/tmp'):
+        assert os.getcwd() == '/tmp'
+
+
+Links & Contact Info
+====================
+
+| PyPI Package: https://pypi.python.org/pypi/utils-core
+| GitHub Source: https://github.com/maxzheng/utils-core
+| Report Issues/Bugs: https://github.com/maxzheng/utils-core/issues
+|
+| Follow: https://twitter.com/MaxZhengX
+| Connect: https://www.linkedin.com/in/maxzheng
+| Contact: maxzheng.os @t gmail.com
+
+

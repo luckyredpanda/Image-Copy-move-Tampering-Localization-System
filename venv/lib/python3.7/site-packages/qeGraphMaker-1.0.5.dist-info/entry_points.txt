@@ -1,0 +1,4 @@
+[console_scripts]
+fileMaker = qeGraphMaker.createFile:main
+graphGen = qeGraphMaker.xeqt:main
+

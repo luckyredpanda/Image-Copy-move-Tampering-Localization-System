@@ -1,0 +1,4 @@
+[console_scripts]
+inbac=inbac.inbac:main
+test=tests.test_inbac:main
+
