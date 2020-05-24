@@ -1,3 +1,0 @@
-[console_scripts]
-helpdev = helpdev.__main__:main
-
